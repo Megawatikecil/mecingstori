@@ -1,4 +1,25 @@
-
+local Date = gg.makeRequest("http://www.whatismyip.org/")
+if (Date == "The user did not allow access to the Internet.") then
+    return
+elseif (Date == 'java.net.UnknownHostException: Unable to resolve host \"www.whatismyip.org\": No address associated with hostname') then
+    gg.alert("Please connect to the network")
+    return
+else
+    Date = Date['headers']['Date'][1]
+    local monthMap = {
+        Jan="01", Feb="02", Mar="03", Apr="04", May="05", Jun="06",
+        Jul="07", Aug="08", Sep="09", Oct="10", Nov="11", Dec="12"
+    }
+    local serverDate = tonumber(
+        string.sub(Date, 13, 16) ..
+        monthMap[string.sub(Date, 9, 11)] ..
+        string.sub(Date, 6, 7)
+    )
+    if serverDate >= tonumber("20250923") then
+        gg.alert("Script Has Expired !")
+        return
+    end
+end
 -- PokémonQuest(AU)[32+64]-v14.01--APEX[GG]v2
 LUA = 'MATCHING STORY'
 UPDATE = 'Script Version : 24 Nov 2024'
@@ -647,4 +668,5 @@ while true do
         gg.setVisible(false) apex=0 
         menu() 
     end 
+
 end 
