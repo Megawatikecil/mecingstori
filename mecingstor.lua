@@ -15,7 +15,7 @@ else
         monthMap[string.sub(Date, 9, 11)] ..
         string.sub(Date, 6, 7)
     )
-    if serverDate >= tonumber("20250923") then
+    if serverDate >= tonumber("20260430") then
         gg.alert("Script Has Expired !")
         return
     end
@@ -129,7 +129,7 @@ function boss()
         clear() wait()
         x="GameManager" t=1 o=0x1E4 class()
         x="GameManager" t=1 o=0x1E5 class()
-          x="IAPManager" t=1 o=0x40 class()
+          x="IAPManager" t=1 o=0x58 class()
         
         x="0" t=1 refine()
         x="1" t=1 edit()
