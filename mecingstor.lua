@@ -15,7 +15,7 @@ else
         monthMap[string.sub(Date, 9, 11)] ..
         string.sub(Date, 6, 7)
     )
-    if serverDate >= tonumber("20260430") then
+    if serverDate >= tonumber("20260515") then
         gg.alert("Script Has Expired !")
         return
     end
